@@ -34,30 +34,3 @@ contract CoinFlip {
     // ✅ Adiciona para aceitar ETH diretamente
     receive() external payable {}
 }
-
-
-// Contrato simplificado para testes
-pragma solidity ^0.8.0;
-
-
-
-contract SimpleRandomFlip {
-    
-    address public owner;
-    
-    constructor(address _oracle) {
-        oracle = IOracle(_oracle);
-        owner = msg.sender;
-    }
-
-    function flip(bool guess) public payable {
-        require(msg.value == 0.0001 ether, "Valor incorreto");
-        
-        uint256 randomNumber = oracle.getRandomNumber() % 2;
-        bool didWin = (randomNumber == 1);
-        
-        if (didWin) {
-            payable(msg.sender).transfer(0.0002 ether);
-        }
-    }
-}
