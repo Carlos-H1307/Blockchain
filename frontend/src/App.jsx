@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ethers } from "ethers";
 import ABI from "./abi/CoinFlip.json";
 
-const CONTRACT_ADDRESS = "0xSEU_ENDERECO_DO_CONTRATO";
+const CONTRACT_ADDRESS = "0xC77656Eb0db15964694f5749d0EC78f54EEf0Ca7";
 
 function App() {
   const [connected, setConnected] = useState(false);
