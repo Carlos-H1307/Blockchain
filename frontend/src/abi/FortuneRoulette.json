@@ -1,0 +1,85 @@
+[
+  {
+    "inputs": [
+      {"internalType": "uint64", "name": "_subscriptionId", "type": "uint64"},
+      {"internalType": "address", "name": "_vrfCoordinator", "type": "address"},
+      {"internalType": "bytes32", "name": "_keyHash", "type": "bytes32"}
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "fundContract",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "play",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": false, "internalType": "uint256", "name": "requestId", "type": "uint256"},
+      {"indexed": false, "internalType": "address", "name": "player", "type": "address"},
+      {"indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256"}
+    ],
+    "name": "Requested",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {"indexed": false, "internalType": "address", "name": "player", "type": "address"},
+      {"indexed": false, "internalType": "uint256", "name": "valueSent", "type": "uint256"},
+      {"indexed": false, "internalType": "uint256", "name": "random", "type": "uint256"},
+      {"indexed": false, "internalType": "uint256", "name": "payout", "type": "uint256"}
+    ],
+    "name": "Result",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "keyHash",
+    "outputs": [{"internalType": "bytes32", "name": "", "type": "bytes32"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "latestRequestId",
+    "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{"internalType": "address", "name": "", "type": "address"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "subscriptionId",
+    "outputs": [{"internalType": "uint64", "name": "", "type": "uint64"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
+]
