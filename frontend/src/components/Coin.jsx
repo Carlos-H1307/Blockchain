@@ -21,16 +21,19 @@ const Coin = forwardRef((props, ref) => {
         const currentY = meshRef.current.rotation.y
         const diff = targetRotation.current - currentY
 
-        // Aproxima da rotação alvo
         if (Math.abs(diff) > 0.01) {
           meshRef.current.rotation.y += diff * 0.05
         } else {
           meshRef.current.rotation.y = targetRotation.current
           targetRotation.current = null
           rotationSpeed.current = 0
+          // Chama o callback quando a moeda para
+          if (props.onStop) {
+            const lado = Math.abs(meshRef.current.rotation.y % (2 * Math.PI)) < Math.PI/2 ? "coroa" : "cara"
+            props.onStop(lado)
+          }
         }
       } else {
-        // Gira normalmente
         meshRef.current.rotation.y += rotationSpeed.current * delta
       }
     }

@@ -4,10 +4,18 @@ import ABI from "../abi/CoinFlip.json";
 import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import Coin3D from "../components/Moeda";
+import { useMessage } from "../contexts/MessageContext";
 
 const CONTRACT_ADDRESS = "0xa11670095e96939D0d124C4c01028EF6FA7fc390";
 
 const CoinFlip = () => {
+  const {showFullScreenMessage} = useMessage();
+  const handleWin = () => {
+    showFullScreenMessage("Você ganhou!!", "#8f2");
+  };
+  const handleLose = () => {
+    showFullScreenMessage("Você Perdeu!!", "#f22");
+  };
   const coin3DRef = useRef();
   const [contract, setContract] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -44,6 +52,13 @@ const CoinFlip = () => {
       const tx = await contract.flip(guess, {
         value: ethers.parseEther("0.0001"),
       });
+
+      const [faceCorreta, faceOposta] = [
+        guess ? "cara" : "coroa",
+        guess ? "coroa" : "cara"
+      ];
+
+
       
       const receipt = await tx.wait();
       
@@ -53,12 +68,17 @@ const CoinFlip = () => {
             const event = contract.interface.parseLog(log);
             if (event && event.name === "Result") {
               const [player, didWin, amount] = event.args;
-              alert(didWin ? "🎉 Você ganhou!" : "😢 Você perdeu.");
+              if(didWin){
+                animarMoeda(faceCorreta);
+              }else{
+                animarMoeda(faceOposta);
+              }
+              //alert(didWin ? "🎉 Você ganhou!" : "😢 Você perdeu.");
               setLastResult(didWin ? "Ganhou!" : "Perdeu.");
               break;
             }
           } catch (e) {
-            console.log("Log não é do contrato CoinFlip:", log);
+            console.log("Ocorreu um erro: ", log);
           }
         }
       }
@@ -76,7 +96,7 @@ const CoinFlip = () => {
         ← Voltar ao Menu
       </Link>
       
-      <h1>Coin Flip DApp</h1>
+      <h1>Coin Flip</h1>
       {lastResult && <p>Último resultado: {lastResult}</p>}
       
       <div className="h-50 d-flex flex-row justify-content-around gap-5 " style={{ width:"600px"}} >
@@ -95,11 +115,15 @@ const CoinFlip = () => {
           >
             {isLoading ? "Processando..." : "Apostar em Coroa"}
           </Button>
-          <button onClick={() => animarMoeda("cara")} >cara</button>
         </div >
-
         <div>
-          <Coin3D ref={coin3DRef}/>
+          <Coin3D ref={coin3DRef} onStop={(lado) => {
+            if(lastResult == "Ganhou!"){
+              handleWin();
+            }else{
+              handleLose();
+            }
+          }} />
         </div>
       </div>
       
