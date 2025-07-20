@@ -5,7 +5,7 @@ interface IOracle {
     function getRandomNumber() external view returns (uint256);
 }
 
-contract CoinFlip {
+contract CoinFlip2 {
     IOracle public oracle;
     address public owner;
     uint256 public betAmount = 0.0001 ether;
