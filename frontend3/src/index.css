@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.casino-container {
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.casino-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.roulette-wheel {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #28a745 0deg 180deg,
+    #dc3545 180deg 360deg
+  );
+  margin: 0 auto 20px;
+  position: relative;
+  border: 8px solid gold;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 3s ease-out;
+}
+
+.roulette-wheel::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  border: 3px solid #333;
+}
+
+.roulette-wheel.spinning {
+  animation: spin 3s ease-out;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(1440deg); }
+}
+
+.bet-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+}
+
+.stats-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.connect-wallet-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.connect-wallet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.bet-btn {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  border: none;
+  border-radius: 25px;
+  padding: 15px 40px;
+  font-weight: bold;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+}
+
+.bet-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.bet-btn:disabled {
+  background: #6c757d;
+  transform: none;
+  box-shadow: none;
+}
+
+.win-animation {
+  animation: winPulse 1s ease-in-out;
+}
+
+@keyframes winPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.lose-animation {
+  animation: loseShake 0.5s ease-in-out;
+}
+
+@keyframes loseShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5em;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-control {
+  border-radius: 15px;
+  border: 2px solid #e9ecef;
+  padding: 12px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.alert {
+  border-radius: 15px;
+  border: none;
+}
+
+.badge {
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 0.9em;
+}
+
+.progress {
+  border-radius: 10px;
+  height: 10px;
+}
+
+.btn-group .btn {
+  border-radius: 15px;
+  margin: 0 5px;
+}
+
+.modal-content {
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 20px 30px 10px;
+}
+
+.modal-body {
+  padding: 20px 30px;
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 10px 30px 20px;
+} 

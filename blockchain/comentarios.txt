@@ -1,0 +1,6 @@
+chainlink so consegui instalar com yarn
+tive q apagar o chai do node modules pq o test tava usando esse que ta errado
+
+npx hardhat test ./tests/CasinoRoletaVRF.test.js - roda blockchain
+
+npx hardhat run scripts/deploy.js --network localhost - faz o deploy com a blockchain rodando

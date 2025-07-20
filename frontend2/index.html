@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Roleta VRF</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Casino Roleta VRF</h1>
+        <p>Aposte e gire a roleta da fortuna!</p>
+
+        <div id="wallet-status" class="status-message">
+            <p>Status da Carteira: <span id="account-address">Conectando...</span></p>
+        </div>
+
+        <div class="card">
+            <h2>Informações do Contrato</h2>
+            <p>Endereço do Contrato: <span id="contract-address">Carregando...</span></p>
+            <p>Saldo da Casa: <span id="house-balance">Carregando...</span> ETH</p>
+            <p>Saldo do Contrato: <span id="contract-eth-balance">Carregando...</span> ETH</p>
+            <p>Contrato Pausado: <span id="contract-paused">Carregando...</span></p>
+            <p>Apostas Pendentes: <span id="pending-bets-count">Carregando...</span></p>
+        </div>
+
+        <div class="card">
+            <h2>Fazer Aposta</h2>
+            <p>Min Bet: <span id="min-bet">0.001</span> ETH</p>
+            <p>Max Bet: <span id="max-bet">0.005</span> ETH</p>
+            <input type="number" id="bet-amount" placeholder="Valor da Aposta (ETH)" step="0.001" min="0.001" max="0.005">
+            <button id="place-bet-btn">Fazer Aposta</button>
+            <p id="bet-message" class="message"></p>
+        </div>
+
+        <div class="card">
+            <h2>Resultados da Aposta</h2>
+            <p>Última Aposta: <span id="last-bet-player">Nenhum</span> - <span id="last-bet-amount">0</span> ETH</p>
+            <p>Resultado da Roleta: <span id="last-roulette-result">Nenhum</span></p>
+            <p>Você Ganhou? <span id="last-won-status">Nenhum</span></p>
+            <p>Pagamento Recebido: <span id="last-payout">0</span> ETH</p>
+        </div>
+
+        <div class="card">
+            <h2>Minhas Estatísticas</h2>
+            <p>Minhas Vitórias: <span id="my-wins">0</span></p>
+            <p>Minhas Derrotas: <span id="my-losses">0</span></p>
+            <p>Total Apostado: <span id="my-total-bet">0</span> ETH</p>
+            <p>Total Ganho: <span id="my-total-won">0</span> ETH</p>
+            <p>Resultado Líquido: <span id="my-net-result">0</span> ETH</p>
+        </div>
+
+        <div class="card owner-section">
+            <h2>Controles do Proprietário (Apenas para Teste)</h2>
+            <button id="add-house-funds-btn">Adicionar Fundos (0.1 ETH)</button>
+            <button id="withdraw-house-funds-btn">Sacar Fundos (0.05 ETH)</button>
+            <button id="pause-btn">Pausar Contrato</button>
+            <button id="unpause-btn">Despausar Contrato</button>
+            <p id="owner-message" class="message"></p>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
