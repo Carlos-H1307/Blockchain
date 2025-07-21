@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 // Importações necessárias do Chainlink
 import "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
-import "@chainlink/contracts/src/v0.8/vrf/interfaces/VRFCoordinatorV2Interface.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
 import "@chainlink/contracts/src/v0.8/shared/access/OwnerIsCreator.sol";
 
 /**

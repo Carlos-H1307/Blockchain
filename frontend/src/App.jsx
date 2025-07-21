@@ -12,10 +12,7 @@ function App() {
     <MessageProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-            <Route path="/fortune-roulette" element={<FortuneRoulette />} />
-            <Route path="/coin-flip" element={<CoinFlip />} />
+          <Route path="" element={<CoinFlip />} />
         </Routes>
       </Router>
     </MessageProvider>
